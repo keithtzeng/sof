@@ -17,7 +17,8 @@ include(`sof/tokens.m4')
 # Include Cannonlake or Icelake DSP configuration
 ifelse(PLATFORM, `icl', include(`platform/intel/icl.m4'),
 	ifelse(PLATFORM, `whl', include(`platform/intel/cnl.m4'),
-		ifelse(PLATFORM, `cml', include(`platform/intel/cnl.m4'), `')))
+		ifelse(PLATFORM, `cml-rt1015', include(`platform/intel/cml-rt1015.m4'),
+			ifelse(PLATFORM, `cml', include(`platform/intel/cnl.m4'), `'))))
 include(`platform/intel/dmic.m4')
 
 DEBUG_START
@@ -25,17 +26,20 @@ DEBUG_START
 undefine(`SSP_INDEX')
 define(`SSP_INDEX', ifelse(PLATFORM, `icl', `0',
 	ifelse(PLATFORM, `whl', `1',
-		ifelse(PLATFORM, `cml', `0', `'))))
+	ifelse(PLATFORM, `cml-rt1015', `0',
+		ifelse(PLATFORM, `cml', `0', `')))))
 
 undefine(`SSP_NAME')
 define(`SSP_NAME', ifelse(PLATFORM, `icl', `SSP0-Codec',
 	ifelse(PLATFORM, `whl', `SSP1-Codec',
-		ifelse(PLATFORM, `cml', `SSP0-Codec', `'))))
+	ifelse(PLATFORM, `cml-rt1015', `SSP0-Codec',
+		ifelse(PLATFORM, `cml', `SSP0-Codec', `')))))
 
 undefine(`SSP_MCLK_RATE')
 define(`SSP_MCLK_RATE', ifelse(PLATFORM, `icl', `19200000',
 	ifelse(PLATFORM, `whl', `24000000',
-		ifelse(PLATFORM, `cml', `24000000', `'))))
+	ifelse(PLATFORM, `cml-rt1015', `24000000',
+		ifelse(PLATFORM, `cml', `24000000', `')))))
 
 #
 # Define the pipelines
@@ -182,6 +186,10 @@ DAI_CONFIG(SSP, SSP_INDEX, 0, SSP_NAME,
 		      SSP_CLOCK(fsync, 48000, codec_slave),
 		      SSP_TDM(2, 25, 3, 3),
 		      SSP_CONFIG_DATA(SSP, SSP_INDEX, 24)))
+
+# SSP 1 (ID: 6)
+DAI_CONFIG(SSP, SPK_INDEX, 6, SPK_NAME,
+	SET_SSP_CONFIG)
 
 # dmic01 (ID: 1)
 DAI_CONFIG(DMIC, 0, 1, dmic01,

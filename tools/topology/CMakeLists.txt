@@ -67,6 +67,7 @@ set(TPLGS
 	"sof-icl-rt711-rt1308-rt715-hdmi\;sof-icl-rt711-rt1308-rt715-hdmi\;-DPLATFORM=icl"
 	"sof-apl-src-pcm512x\;sof-apl-src-pcm512x"
 	"sof-cml-rt5682\;sof-cml-rt5682\;-DPLATFORM=cml"
+	"sof-cml-rt5682\;sof-cml-rt5682-rt1015\;-DPLATFORM=cml-rt1015"
 	"sof-cml-rt5682\;sof-whl-rt5682\;-DPLATFORM=whl"
 	"sof-cml-rt5682\;sof-icl-rt5682\;-DPLATFORM=icl"
 	"sof-cml-rt5682-kwd\;sof-cml-rt5682-kwd\;-DPLATFORM=cml"
