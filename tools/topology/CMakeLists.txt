@@ -110,6 +110,7 @@ set(TPLGS
 	"sof-cml-rt5682\;sof-cml-eq-fir-rt5682\;-DPLATFORM=cml\;-DHSMICPROC=eq-fir-volume\;-DDMICPROC=eq-iir-volume\;-DDMIC16KPROC=eq-iir-volume"
 	"sof-cml-rt5682\;sof-cml-eq-fir-loud-rt5682\;-DPLATFORM=cml\;-DHSEARPROC=eq-iir-volume\;-DPIPELINE_FILTER1=eq_iir_coef_loudness.m4\;-DHSMICPROC=eq-fir-volume\;-DPIPELINE_FILTER2=eq_fir_coef_loudness.m4\;-DDMICPROC=eq-iir-volume\;-DDMIC16KPROC=eq-iir-volume"
 	"sof-cml-rt5682\;sof-cml-eq-iir-rt5682\;-DPLATFORM=cml\;-DHSEARPROC=eq-iir-volume\;-DDMICPROC=eq-iir-volume\;-DDMIC16KPROC=eq-iir-volume"
+	"sof-cml-rt5682\;sof-cml-rt5682-rt1015\;-DPLATFORM=cml-rt1015\;-DDMICPROC=eq-iir-volume\;-DDMIC16KPROC=eq-iir-volume"
 	"sof-cml-rt5682\;sof-whl-rt5682\;-DPLATFORM=whl\;-DDMICPROC=eq-iir-volume\;-DDMIC16KPROC=eq-iir-volume"
 	"sof-cml-rt5682\;sof-icl-rt5682\;-DPLATFORM=icl\;-DDMICPROC=eq-iir-volume\;-DDMIC16KPROC=eq-iir-volume"
 	"sof-cml-rt5682-kwd\;sof-cml-rt5682-kwd\;-DPLATFORM=cml"
